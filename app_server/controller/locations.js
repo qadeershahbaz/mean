@@ -1,5 +1,5 @@
 const home = function (req, res, next) {
-    res.render('index', { title: 'Home' })
+    res.render('location-list', { title: 'Homes' })
 }
 
 
