@@ -4,7 +4,7 @@ const home = function (req, res, next) {
 
 
 const locationDetail = function (req, res, next) {
-    res.render('index', { title: 'Location detail' })
+    res.render('location-detail', { title: 'Location details' })
 }
 
 const locationReviewForm = function (req, res, next) {
