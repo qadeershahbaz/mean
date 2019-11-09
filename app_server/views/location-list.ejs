@@ -13,7 +13,7 @@
         <div id="banner" class="page-header">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Loc8r <small>&nbsp; Find places to work with wifi near you</small></h1>
+                    <h1>Loc8r <small>&nbsp; <%=app_quote %></small></h1>
                 </div>
 
             </div>
@@ -22,75 +22,43 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8">
                 <div class="row list-group">
+
+                    <% available_locations.forEach(item=>{  %>
+
+
                     <div class="class-xs-12 list-group-item">
                         <h4>
-                            <a href='/location'>Starcups</a>
+                            <a href='/location'><%=item.loc_name %></a>
                             <small>&nbsp;
                                 <span class="star-rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
+                                    <% for(let i=1;i<=max_rating;i++){ %>
+                                    <span class="glyphicon glyphicon-star<%=item.loc_rating>=i?'':'-empty' %>"></span>
+                                    <% }%>
+
+
                                 </span>
                             </small>
-                            <span class="badge pull-right badge-default">100m</span>
+                            <span class="badge pull-right badge-default"><%=item.loc_distance %></span>
                         </h4>
-                        <p class="address">125 Hig Street ,Reading, RG6 IPS</p>
+                        <p class="address"><%=item.loc_address %></p>
                         <p>
-                            <span class="label label-warning">Hot Drinks &nbsp;</span>
-                            <span class="label label-warning">Food &nbsp;</span>
-                            <span class="label label-warning">Premimum Wifi &nbsp;</span>
+                            <% item.loc_facilities.forEach(item=>{ %>
+
+
+                            <span class="label label-warning"><%=item %> &nbsp;</span>
+
+                            <% }) %>
                         </p>
 
                     </div>
-                    <div class="class-xs-12 list-group-item">
-                        <h4>
-                            <a href='/location'>Starcups</a>
-                            <small>&nbsp;
-                                <span class="star-rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </span>
-                            </small>
-                            <span class="badge pull-right badge-default">100m</span>
-                        </h4>
-                        <p class="address">125 Hig Street ,Reading, RG6 IPS</p>
-                        <p>
-                            <span class="label label-warning">Hot Drinks &nbsp;</span>
-                            <span class="label label-warning">Food &nbsp;</span>
-                            <span class="label label-warning">Premimum Wifi &nbsp;</span>
-                        </p>
-
-                    </div>
-                    <div class="class-xs-12 list-group-item">
-                        <h4>
-                            <a href='/location'>Starcups</a>
-                            <small>&nbsp;
-                                <span class="star-rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </span>
-                            </small>
-                            <span class="badge pull-right badge-default">100m</span>
-                        </h4>
-                        <p class="address">125 Hig Street ,Reading, RG6 IPS</p>
-                        <p>
-                            <span class="label label-warning">Hot Drinks &nbsp;</span>
-                            <span class="label label-warning">Food &nbsp;</span>
-                            <span class="label label-warning">Premimum Wifi &nbsp;</span>
-                        </p>
-
-                    </div>
+                    <% }) %>
 
                 </div>
+
+
             </div>
             <div class="col-xs-12 col-sm-4">
-                <p class="lead">Looking for a wifi and a seat? Loc8r helps you find places to work when out and about.
-                    Perhaps witha coffee, cake or a pnt?LEt locator help you find the place you're looking for. </p>
+                <p class="lead"><%=app_description %> </p>
             </div>
 
         </div>
