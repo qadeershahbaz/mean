@@ -8,7 +8,7 @@ const locationDetail = function (req, res, next) {
 }
 
 const locationReviewForm = function (req, res, next) {
-    res.render('index', { title: 'Location Review Form' })
+    res.render('location-review-form', { title: 'Review StarCups' })
 }
 
 module.exports = {

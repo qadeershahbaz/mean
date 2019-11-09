@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+
+        <div class="container">
+            <h1 class="page-header"><%= title %></h1>
+            <div class="container">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="row form-inline">
+                            <div class="col-sm-12 col-lg-1 ">
+                                <div class="control-label">Name</div>
+                            </div>
+                            <div class="col-sm-12 col-lg-11"> <input class=" form-control " /></div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row form-inline">
+                            <div class="col-sm-12 col-lg-1 ">
+                                <div class="control-label">Rating</div>
+                            </div>
+                            <div class="col-sm-12 col-lg-2"> <input type="number" max="5" min="1"
+                                    class=" form-control " /></div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row form-inline">
+                            <div class="col-sm-12 col-lg-1 ">
+                                <div class="control-label">Review</div>
+                            </div>
+                            <div class="col-sm-12 col-lg-11">
+                                <textarea class=" form-control text-area " rows="5"></textarea> </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-default pull-right">Add Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+</body>
+
+</html>
