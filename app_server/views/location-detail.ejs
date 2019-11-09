@@ -13,38 +13,50 @@
 
         <div class="container">
             <div>
-                <h1 class="page-header">Starcups</h1>
+                <h1 class="page-header"><%= info.name %></h1>
             </div>
             <div class="row">
                 <div class="col-md-10 col-xs-12">
                     <div class="row">
+
                         <div class="col-md-6 col-xs-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <p class="address">125 Hig Street ,Reading, RG6 IPS</p>
+
+                            <% 
+                          for(i=1;i<=info.max_rating;i++){ %>
+                            <span class="glyphicon glyphicon-star<%=info.loc_rating>=i?  ' ': '-empty' %> "></span>
+
+                            <%   }  %>
+
+                            <p class="address"><%=info.address %> </p>
+
+
                             <div class="panel panel-primary">
                                 <div class=" panel-heading">
                                     <h4 class="panel-title">Opening Hours</h4>
                                 </div>
                                 <div class=" panel-body">
-                                    <p> Monday-Friday :7:00am -7:00pm </p>
-                                    <p> Saturday :8:00am -5:00pm </p>
-                                    <p> Sunday :Closed </p>
+                                    <% info.openingHours.forEach((item)=>{ %>
+                                    <p><%=item %></p>
+                                    <%  }) %>
                                 </div>
                             </div>
+
+
                             <div class="panel panel-primary">
                                 <div class=" panel-heading">
                                     <h4 class="panel-title">Facilities</h4>
                                 </div>
                                 <div class="panel-body">
-                                    <span class="label label-warning">Hot Drinks</span>
-                                    <span class="label label-warning">Food</span>
-                                    <span class="label label-warning">Premium Wifi</span>
+                                    <% info.facilities.forEach(item=>{ %>
+                                    <span class="label label-warning"><%=item  %></span>
+                                    <% }) %>
+
+
                                 </div>
+
                             </div>
                         </div>
+
                         <div class="col-md-6 col-xs-12">
                             <div class="panel panel-primary">
                                 <div class=" panel-heading">
@@ -52,7 +64,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <span class="location-map">
-                                        <img class="img-responsive img-rounded" src="/images/staticmap.png" />
+                                        <img class="img-responsive img-rounded" src="<%=info.loc_url %>" />
                                     </span>
                                 </div>
                             </div>
@@ -66,39 +78,31 @@
                                     <h4 class="panel-title"> Customer Reviews</h4>
                                 </div>
                                 <div class="panel panel-default">
+                                    <% info.cutomer_reviews.forEach(item=>{ %>
+
+
+
                                     <div class="panel-body">
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span> Simon Holmes 16 July 2013</span>
+                                        <% for(i=1;i<=info.max_rating;i++){ %>
+                                        <span
+                                            class="glyphicon glyphicon-star<%=item.customer_rating>=i?'':'-empty' %>"></span>
+                                        <% }  %>
+
+
+                                        <span><%=item.customer_name %></span>
+                                        <span><%=item.date %></span>
                                     </div>
-                                    <div class="panel-heading">Wha a great place. I can't say enough good place about it.</div>
-                                    <div class="panel-body">
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span> Simon Holmes 16 July 2013</span>
-                                    </div>
-                                    <div class="panel-heading">Wha a great place. I can't say enough good place about it.</div>
-                                    <div class="panel-body">
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span> Simon Holmes 16 July 2013</span>
-                                    </div>
-                                    <div class="panel-heading">Wha a great place. I can't say enough good place about it.</div>
-                                    
+
+                                    <div class="panel-heading"><%=item.customer_review %></div>
+
+                                    <%  })  %>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <p> Simon's cafe is on Loc8r because it has accesible wifi and a space to sitdown with ypur laptop
-                        and get some work done.</p>
+                    <p><%=info.loc_overview %></p>
                     <h6 class="h6">If you've been and you like it-or if you don't please leave a review to help other
                         people jsut like you.</h6>
                 </div>
